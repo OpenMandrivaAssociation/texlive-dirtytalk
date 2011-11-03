@@ -1,5 +1,11 @@
+# revision 20520
+# category Package
+# catalog-ctan undef
+# catalog-date undef
+# catalog-license undef
+# catalog-version undef
 Name:		texlive-dirtytalk
-Version:	20111101
+Version:	20111103
 Release:	1
 Summary:	TeXLive dirtytalk package
 Group:		Publishing
@@ -42,6 +48,7 @@ TeXLive dirtytalk package.
 #- source
 %doc %{_texmfdistdir}/source/latex/dirtytalk/dirtytalk.dtx
 %doc %{_texmfdistdir}/source/latex/dirtytalk/dirtytalk.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -52,3 +59,5 @@ TeXLive dirtytalk package.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
