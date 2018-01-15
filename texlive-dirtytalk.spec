@@ -5,7 +5,7 @@
 # catalog-license undef
 # catalog-version undef
 Name:		texlive-dirtytalk
-Version:	1.0
+Version:	20170414
 Release:	1
 Summary:	TeXLive dirtytalk package
 Group:		Publishing
