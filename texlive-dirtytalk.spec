@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-dirtytalk
 Version:	1.0
-Release:	2
+Release:	1
 Summary:	TeXLive dirtytalk package
 Group:		Publishing
 URL:		http://tug.org/texlive
