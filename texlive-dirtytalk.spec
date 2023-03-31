@@ -1,6 +1,6 @@
 Name:		texlive-dirtytalk
 Version:	20520
-Release:	1
+Release:	2
 Summary:	TeXLive dirtytalk package
 Group:		Publishing
 URL:		http://tug.org/texlive
