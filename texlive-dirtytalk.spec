@@ -1,45 +1,25 @@
-Name:		texlive-dirtytalk
-Version:	20520
-Release:	2
-Summary:	TeXLive dirtytalk package
+%global tl_name dirtytalk
+%global tl_revision 20520
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.0
+Release:	%{tl_revision}.1
+Summary:	A package to typeset quotations easier
 Group:		Publishing
-URL:		https://tug.org/texlive
-License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dirtytalk.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dirtytalk.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dirtytalk.source.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/dirtytalk
+License:	pd
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/dirtytalk.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/dirtytalk.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/dirtytalk.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-TeXLive dirtytalk package.
+The package provides a macro to typeset quotations, using the command
+\say{stuff}. The quotation mark glyphs are inserted by the macro; nested
+quotations are detected.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/dirtytalk/dirtytalk.sty
-%doc %{_texmfdistdir}/doc/latex/dirtytalk/README
-%doc %{_texmfdistdir}/doc/latex/dirtytalk/dirtytalk.pdf
-#- source
-%doc %{_texmfdistdir}/source/latex/dirtytalk/dirtytalk.dtx
-%doc %{_texmfdistdir}/source/latex/dirtytalk/dirtytalk.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
